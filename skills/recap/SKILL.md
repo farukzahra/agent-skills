@@ -33,9 +33,33 @@ Produce a **single self-contained HTML file** that recaps the conversation: what
 6. **Save** to `docs/session-recaps/YYYY-MM-DD-<slug>.html` when the project has a `docs/` folder; otherwise `session-recap.html` at workspace root or a path the user specifies.
 7. **Reply** with the file path, local URL, and a short markdown table summary (optional).
 
+## UI design (required)
+
+Before generating HTML, apply **anti-ui-slop** and **frontend-design**:
+
+- **No generic slop**: avoid cream `#F4F1EA` templates, default Inter/system-only stacks, and numbered cards without meaning.
+- **Dark mode by default** for recap HTML (`color-scheme: dark`, `meta color-scheme`).
+- **Ground in the product**: when the repo has design tokens (e.g. TerapIA `dashboard-theme-presets.ts` → `petroleo-atual`), reuse primary, bg, ink, muted — do not invent a unrelated palette.
+- **Typography**: pair a restrained serif display (e.g. Literata) with a clean sans body (e.g. IBM Plex Sans); not Arial/Inter alone.
+- **Hierarchy**: eyebrow → title → local test panel (pill link grid + health dot) → topic cards with left accent bar → pending footer.
+- **Accessibility**: visible `:focus-visible`, `prefers-reduced-motion`, sufficient contrast on dark surfaces.
+
 ## HTML template
 
-Keep copy short; max ~8–12 topic cards per session. Label text inside the HTML follows project locale.
+Keep copy short; max ~8–12 topic cards. Label text follows project locale (PT-BR: **Pedido** / **Entregue** / **Pendências**).
+
+Use this dark token set when no project tokens exist:
+
+| Token | Default |
+|-------|---------|
+| `--bg-page` | `#102223` |
+| `--bg-card` | `#16302f` |
+| `--primary` | `#2d6a6b` |
+| `--secondary` | `#7fb5b0` |
+| `--ink` | `#f2f5f4` |
+| `--muted` | `#9bb0ae` |
+
+Structure (inline CSS + optional Google Fonts):
 
 ```html
 <!DOCTYPE html>
@@ -43,137 +67,23 @@ Keep copy short; max ~8–12 topic cards per session. Label text inside the HTML
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
   <title>Recap — {Project} — {Date}</title>
-  <style>
-    :root {
-      --bg: #f6f3ee;
-      --card: #fff;
-      --ink: #1a1f24;
-      --muted: #5c6670;
-      --accent: #2d6a6b;
-      --border: #e4ddd3;
-      --done: #e8f5e9;
-      --done-border: #a5d6a7;
-      --pending: #fff8e1;
-      --pending-border: #ffe082;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-    }
-    .wrap { max-width: 52rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
-    header {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-    header h1 { margin: 0 0 0.35rem; font-size: 1.5rem; color: var(--accent); }
-    header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-    }
-    .stats span { background: var(--bg); padding: 0.35rem 0.75rem; border-radius: 999px; }
-    .local-env {
-      background: #e3f2fd;
-      border: 1px solid #90caf9;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-    .local-env h2 { margin: 0 0 0.5rem; font-size: 0.95rem; color: #1565c0; }
-    .local-env a { color: #1565c0; font-weight: 600; }
-    .local-env ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
-    .local-env li { margin-bottom: 0.25rem; }
-    .topic {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-    .topic h2 { margin: 0 0 0.65rem; font-size: 1rem; font-weight: 600; }
-    .label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
-    .requested { color: var(--muted); margin-bottom: 0.75rem; font-size: 0.92rem; }
-    .delivered {
-      background: var(--done);
-      border: 1px solid var(--done-border);
-      border-radius: 8px;
-      padding: 0.65rem 0.85rem;
-      font-size: 0.92rem;
-    }
-    .delivered ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
-    .delivered li { margin-bottom: 0.25rem; }
-    .pending {
-      background: var(--pending);
-      border: 1px solid var(--pending-border);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-top: 1.25rem;
-      font-size: 0.9rem;
-    }
-    .pending h2 { margin: 0 0 0.5rem; font-size: 0.95rem; }
-    .pending ul { margin: 0; padding-left: 1.2rem; }
-    footer {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-    }
-  </style>
+  <!-- Literata + IBM Plex Sans or project-appropriate pair -->
+  <style>/* dark tokens, radial glow on body::before, card shadows */</style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>{Recap title}</h1>
-      <p>{Project name} · {Date}</p>
-      <div class="stats">
-        <span>{N} topics</span>
-      </div>
-    </header>
-    <!-- Include when project has local dev server rules -->
-    <section class="local-env">
-      <h2>Testar localmente</h2>
-      <p>App: <a href="{Base URL}">{Base URL}</a> · health OK</p>
-      <ul>
-        <li><a href="{Route}">{Label}</a></li>
-        <li>Login de teste (se no AGENTS.md): {user} / {password}</li>
-      </ul>
-    </section>
-    <article class="topic">
-      <h2>{Topic title}</h2>
-      <div class="label">{Requested label}</div>
-      <p class="requested">{What user wanted}</p>
-      <div class="label">{Delivered label}</div>
-      <div class="delivered">
-        <ul>
-          <li>{Deliverable}</li>
-        </ul>
-      </div>
-    </article>
+    <p class="eyebrow">{Project} · sessão agente</p>
+    <header>...</header>
+    <section class="local-env"><!-- pill link grid + health dot when dev server required --></section>
+    <div class="topics"><article class="topic">...</article></div>
+    <section class="pending">...</section>
     <footer>Generated by /recap</footer>
   </div>
 </body>
 </html>
 ```
-
-For TerapIA and other PT-BR projects, use labels **Pedido** / **Entregue** / **Pendências** and title **Recap da sessão**.
 
 ## Quality bar
 
