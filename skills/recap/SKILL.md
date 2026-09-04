@@ -25,8 +25,13 @@ Produce a **single self-contained HTML file** that recaps the conversation: what
    - **Delivered** — concrete outcomes: files, routes, scripts, rules, tests; include paths when helpful.
 3. **Skip** failed or abandoned attempts unless the user should know about them.
 4. **Generate HTML** using the template below (inline CSS only, no external dependencies).
-5. **Save** to `docs/session-recaps/YYYY-MM-DD-<slug>.html` when the project has a `docs/` folder; otherwise `session-recap.html` at workspace root or a path the user specifies.
-6. **Reply** with the file path and a short markdown table summary (optional). Open in browser if the environment allows.
+5. **Ensure local dev server** when the project rules require it (e.g. `AGENTS.md`, user rules):
+   - Read repo docs for start commands (TerapIA: `npm run db:up` + `npm run dev` → default `http://localhost:3000`).
+   - If down, start it before finishing the recap.
+   - Validate HTTP 200 on health or main route; record the **effective URL** (port may differ).
+   - Include test login hints only if documented in the repo (never secrets from `.env`).
+6. **Save** to `docs/session-recaps/YYYY-MM-DD-<slug>.html` when the project has a `docs/` folder; otherwise `session-recap.html` at workspace root or a path the user specifies.
+7. **Reply** with the file path, local URL, and a short markdown table summary (optional).
 
 ## HTML template
 
@@ -78,6 +83,17 @@ Keep copy short; max ~8–12 topic cards per session. Label text inside the HTML
       font-size: 0.85rem;
     }
     .stats span { background: var(--bg); padding: 0.35rem 0.75rem; border-radius: 999px; }
+    .local-env {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .local-env h2 { margin: 0 0 0.5rem; font-size: 0.95rem; color: #1565c0; }
+    .local-env a { color: #1565c0; font-weight: 600; }
+    .local-env ul { margin: 0.5rem 0 0; padding-left: 1.2rem; font-size: 0.9rem; }
+    .local-env li { margin-bottom: 0.25rem; }
     .topic {
       background: var(--card);
       border: 1px solid var(--border);
@@ -131,6 +147,15 @@ Keep copy short; max ~8–12 topic cards per session. Label text inside the HTML
         <span>{N} topics</span>
       </div>
     </header>
+    <!-- Include when project has local dev server rules -->
+    <section class="local-env">
+      <h2>Testar localmente</h2>
+      <p>App: <a href="{Base URL}">{Base URL}</a> · health OK</p>
+      <ul>
+        <li><a href="{Route}">{Label}</a></li>
+        <li>Login de teste (se no AGENTS.md): {user} / {password}</li>
+      </ul>
+    </section>
     <article class="topic">
       <h2>{Topic title}</h2>
       <div class="label">{Requested label}</div>
