@@ -1,10 +1,18 @@
-# Agent Skills
+# Agent Skills — Skills.sh Maintainer
 
-Personal agent skills for Cursor and other coding agents. Skills follow the [Agent Skills](https://agentskills.io/) format.
+Repositório **oficial** das skills publicadas em [skills.sh/farukzahra/agent-skills](https://skills.sh/farukzahra/agent-skills).
+
+**Agente deste workspace:** Skills.sh Maintainer — ver `AGENTS.md` e skill `skills-sh-maintainer`.
 
 [![skills.sh](https://skills.sh/b/farukzahra/agent-skills)](https://skills.sh/farukzahra/agent-skills)
 
 ## Skills
+
+### skills-sh-maintainer
+
+Meta-skill: criar, atualizar, publicar e sincronizar skills no skills.sh e no ambiente local (`~/.cursor/skills`, `~/.agents/skills`).
+
+**Use when:** criar skill nova, alterar skill publicada, push para GitHub/skills.sh, instalar globalmente.
 
 ### recap
 
@@ -22,13 +30,25 @@ Summarize all user requests from the current AI chat session and produce a conci
 # All skills in this repo
 npx skills add farukzahra/agent-skills -g -a cursor -y
 
-# Only recap
+# Maintainer (publish workflow)
+npx skills add farukzahra/agent-skills --skill skills-sh-maintainer -g -a cursor -y
+
+# Recap only
 npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
 ```
 
-## Cursor slash command (optional)
+## Local clone
 
-The skill works when the agent discovers it from the description. For an explicit `/recap` command in Cursor, add `.cursor/commands/recap.md` in your project (not part of the skills.sh package).
+```text
+C:\repo\agent-skills   ← fonte de verdade; commit + push aqui
+```
+
+## Cursor slash commands
+
+| Command | Repo | Notes |
+|---------|------|-------|
+| `/skills-sh` | **this repo** | `.cursor/commands/skills-sh.md` |
+| `/recap` | consumer project | e.g. `sessao-gravador/.cursor/commands/recap.md` |
 
 ## License
 
