@@ -8,7 +8,7 @@ Personal agent skills for Cursor and other coding agents. Skills follow the [Age
 
 ### recap
 
-Summarize all user requests from the current AI chat session and produce a concise rich HTML recap (requested vs delivered). Invoke with `/recap` or ask for a session handoff.
+Summarize all user requests from the current AI chat session and produce a concise rich HTML recap (requested vs delivered). Dark mode, product tokens, **clickable topic cards** (mark as seen, `localStorage`). Invoke with `/recap` or ask for a session handoff.
 
 **Use when:**
 
