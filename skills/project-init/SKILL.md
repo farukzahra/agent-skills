@@ -3,8 +3,10 @@ name: project-init
 description: >-
   Bootstrap Superpowers agent workflow in a project — docs/superpowers folders,
   mandatory skills (brainstorming, writing-plans, semantic-version, caveman-commit,
-  dont-forget, recap), slash commands, AGENTS.md gates. Use when user invokes /init or
-  asks to initialize agent conventions in a new or legacy repo.
+  dont-forget, recap, automate-before-manual, validate-before-share,
+  finish-with-dev-server, ask-before-architecture, diagrams-mermaid, ui-change-e2e),
+  slash commands, AGENTS.md gates. Use when user invokes /init or asks to initialize
+  agent conventions in a new or legacy repo.
 disable-model-invocation: false
 ---
 
@@ -43,6 +45,12 @@ Sets up Superpowers + Faruk mandatory skills in the **current project**. Does no
 | `caveman-commit` | Commit messages on `/commit-push` |
 | `dont-forget` | Recurring rules → CI/hooks/codegen, not prose |
 | `recap` | Session handoff → HTML recap (`/recap`) |
+| `automate-before-manual` | Try PAT/SSH/API before manual steps (`../secrets/`) |
+| `validate-before-share` | Verify URLs before sending to user |
+| `finish-with-dev-server` | Dev server up, port conflict rules, test URLs |
+| `ask-before-architecture` | Ask before stack/architecture choices |
+| `diagrams-mermaid` | Mermaid only; validate syntax before show |
+| `ui-change-e2e` | E2E on UI create/change/bugfix |
 
 ### Optional after init
 
@@ -68,18 +76,24 @@ Template README: `farukzahra/agent-skills` → `reference/superpowers/docs-READM
 
 ### 3. Install skills
 
-```bash
-npx skills experimental_install
-npx skills add farukzahra/agent-skills \
-  --skill semantic-version \
-  --skill caveman-commit \
-  --skill dont-forget \
-  --skill recap \
-  -a cursor -y
+Run the sync script (installs **all** current `farukzahra/agent-skills` packages, including any newly added skills):
+
+```powershell
+# From any machine with agent-skills cloned — relative to repo parent:
+../agent-skills/scripts/sync-faruk-skills.ps1
 ```
 
-- No `skills-lock.json` → copy `skills-lock.core.json` from agent-skills repo, then `experimental_install`
-- Existing full lock (Faruk Base) → `experimental_install` only; **do not overwrite**
+Or manually:
+
+```bash
+npx skills experimental_install
+npx skills add farukzahra/agent-skills -a cursor -y
+```
+
+(`-y` installs every skill in the package; omit `skills-sh-maintainer` outside `agent-skills` repo — the script handles that.)
+
+- No `skills-lock.json` → copy `skills-lock.core.json` from agent-skills, then `experimental_install`
+- Existing full lock → `experimental_install` only; **do not overwrite**
 
 **Stack skills** (if missing from lock):
 
@@ -128,6 +142,6 @@ List: folders created, skills installed, commands ready (`/init`, `/commit-push`
 
 | Item | Path |
 |------|------|
-| Agent-skills repo | `C:\repo\agent-skills` |
-| Faruk Base template | `C:\repo\faruk_base` |
-| Core skills lock | `skills/skills-lock.core.json` in agent-skills |
+| Agent-skills repo | `../agent-skills` (sibling of project repos) |
+| Secrets vault | `../secrets/` (never absolute paths in skills) |
+| Sync all Faruk skills | `../agent-skills/scripts/sync-faruk-skills.ps1` |

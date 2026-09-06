@@ -16,14 +16,14 @@ You maintain **Faruk's published agent skills** on [skills.sh](https://skills.sh
 
 | What | Path / URL |
 |------|------------|
-| **Git repo (edit here first)** | `C:\repo\agent-skills` |
+| **Git repo (edit here first)** | `../agent-skills` (sibling of project repos under shared parent) |
 | **GitHub** | https://github.com/farukzahra/agent-skills |
 | **skills.sh listing** | https://skills.sh/farukzahra/agent-skills |
-| **Local Cursor skills** | `C:\Users\T-GAMER\.cursor\skills\<name>\` |
-| **Local agents skills** | `C:\Users\T-GAMER\.agents\skills\<name>\` |
-| **GitHub PAT** | `C:\repo\secrets\github\pat.txt` (line `ghp_...`) |
+| **Local Cursor skills** | `~/.cursor/skills/<name>/` |
+| **Local agents skills** | `~/.agents/skills/<name>/` |
+| **GitHub PAT** | `../secrets/github/pat.txt` (line `ghp_...`) |
 
-**Never** consider a skill change done if you only edited `~/.cursor/skills/` without commit + push in `C:\repo\agent-skills`.
+**Never** consider a skill change done if you only edited `~/.cursor/skills/` without commit + push in `../agent-skills`.
 
 ## When to use this skill
 
@@ -38,7 +38,7 @@ You maintain **Faruk's published agent skills** on [skills.sh](https://skills.sh
 1. **Choose kebab-case name** (English): e.g. `recap`, `skills-sh-maintainer`.
 2. **Create folder** in repo:
    ```
-   C:\repo\agent-skills/skills/<skill-name>/
+   ../agent-skills/skills/<skill-name>/
      SKILL.md          # required — YAML frontmatter + body (English)
      reference/        # optional snippets, templates
    ```
@@ -49,31 +49,27 @@ You maintain **Faruk's published agent skills** on [skills.sh](https://skills.sh
    - User-facing HTML/copy may be PT-BR when the skill targets a PT project
 4. **Update** `README.md` in repo root — list the new skill + install one-liner.
 5. **Commit + push** `main` (Conventional Commits, English message).
-6. **Sync local copies**:
+6. **Sync everywhere** (auto-discovers new folders under `skills/`):
    ```powershell
-   Copy-Item -Recurse "C:\repo\agent-skills\skills\<skill-name>" "C:\Users\T-GAMER\.cursor\skills\<skill-name>" -Force
-   Copy-Item -Recurse "C:\repo\agent-skills\skills\<skill-name>" "C:\Users\T-GAMER\.agents\skills\<skill-name>" -Force
+   ../agent-skills/scripts/sync-faruk-skills.ps1
    ```
 7. **Rollout** — see [reference/rollout.md](reference/rollout.md):
-   - **Cross-repo skills** (`recap`, `dont-forget`, …): before closing, **ask the user** whether to install globally (`-g`) for all projects under `C:\repo`. If they already said yes (or "install everywhere"), run without asking again.
-   - **Workspace-specific skills** (`skills-sh-maintainer`): sync step 6 only; **do not** offer bulk `C:\repo` rollout.
-   ```bash
-   npx skills add farukzahra/agent-skills --skill <skill-name> -g -a cursor -y
-   ```
+   - **Cross-repo skills**: `sync-faruk-skills.ps1` installs project + global; or ask user before `-GlobalOnly` changes.
+   - **Workspace-specific** (`skills-sh-maintainer`): local copy sync only in `agent-skills` workspace.
 8. **Project slash commands** (if needed) live in **consumer repos**, e.g. `sessao-gravador/.cursor/commands/recap.md` — not in the skills.sh package.
 
 ## Update an existing skill
 
-1. Edit under `C:\repo\agent-skills/skills/<skill-name>/`.
-2. Sync to `~/.cursor/skills/` and `~/.agents/skills/` (same folder name).
+1. Edit under `../agent-skills/skills/<skill-name>/`.
+2. Run `../agent-skills/scripts/sync-faruk-skills.ps1` (or commit first, then sync after push).
 3. `git add` → `git commit` → `git push origin main`.
 4. Report commit hash + skills.sh URL to the user.
 
 ### Push when `gh` is unavailable
 
 ```powershell
-cd C:\repo\agent-skills
-$pat = (Get-Content "C:\repo\secrets\github\pat.txt" -Raw).Trim() -split "`n" | Where-Object { $_ -match '^ghp_' } | Select-Object -First 1
+cd ../agent-skills
+$pat = (Get-Content "../secrets/github/pat.txt" -Raw).Trim() -split "`n" | Where-Object { $_ -match '^ghp_' } | Select-Object -First 1
 git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 ```
 
@@ -94,6 +90,12 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 | `semantic-version` | Bump `docs/release-history.json` on `/commit-push` (feeds `/sobre`) |
 | `caveman-commit` | Terse Conventional Commits for `/commit-push` |
 | `project-init` | Bootstrap Superpowers workflow (`/init`) in a project |
+| `automate-before-manual` | PAT/SSH/API via `../secrets/` before manual steps |
+| `validate-before-share` | Verify URLs before sharing with user |
+| `finish-with-dev-server` | Dev server, port conflicts, test URLs |
+| `ask-before-architecture` | Ask before stack/architecture decisions |
+| `diagrams-mermaid` | Mermaid diagrams with syntax validation |
+| `ui-change-e2e` | E2E on UI changes and bugfixes |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
 ## Do not

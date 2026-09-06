@@ -40,14 +40,13 @@ Não encerrar sem push no GitHub.
 
 ```bash
 # Global = disponível em TODOS os projetos (recomendado para skills gerais)
-npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
-npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
+../agent-skills/scripts/sync-faruk-skills.ps1
 
-# Maintainer: só faz sentido neste workspace
-npx skills add farukzahra/agent-skills --skill skills-sh-maintainer -g -a cursor -y
+# Ou só global:
+../agent-skills/scripts/sync-faruk-skills.ps1 -GlobalOnly
 ```
 
-Instalação **por repo** (commitar no git de cada projeto): ver `skills/skills-sh-maintainer/reference/rollout.md`.
+Instalação **por repo** incluída no script acima. Secrets: **`../secrets/`** (nunca path absoluto em skills).
 
 Comandos `/recap` etc. ficam em cada projeto (ex.: `sessao-gravador/.cursor/commands/`), fora do pacote skills.sh.
 

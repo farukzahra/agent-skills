@@ -6,6 +6,12 @@ Skills worth **publishing** on `farukzahra/agent-skills` (cross-repo):
 |-------|--------|---------|
 | `recap` | Published | Session HTML recap |
 | `dont-forget` | Published | Obligation → CI/hooks automation |
+| `automate-before-manual` | **Added** | `../secrets/` before manual steps |
+| `validate-before-share` | **Added** | Verify links before sharing |
+| `finish-with-dev-server` | **Added** | Dev server + port conflict rules |
+| `ask-before-architecture` | **Added** | Ask before stack choices |
+| `diagrams-mermaid` | **Added** | Mermaid + validate before show |
+| `ui-change-e2e` | **Added** | E2E on UI change/bugfix |
 | `semantic-version` | **Added** | `docs/release-history.json` → `/sobre` changelog |
 | `caveman-commit` | **Added** | Terse Conventional Commits for `/commit-push` |
 | `skills-sh-maintainer` | Published | Publish skills to skills.sh |
@@ -57,6 +63,6 @@ prod verify       →  docs/commit-push.json
 | Specs / plans | `docs/superpowers/specs/`, `plans/` |
 | Core skills lock | `reference/superpowers/skills-lock.core.json` |
 | Bootstrap command | `/init` → `reference/commands/init.md` |
-| Install all repos | `scripts/install-superpowers.ps1` |
+| Install all repos | `scripts/sync-faruk-skills.ps1` (auto-discovers `skills/*`) |
 
 Full template: `C:\repo\faruk_base` (19 skills in lock + example specs).

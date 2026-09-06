@@ -46,33 +46,52 @@ Ultra-compressed Conventional Commits (≤50 char subject). Pair with `semantic-
 
 Bootstrap Superpowers workflow in a project (`/init`): folders, mandatory skills, slash commands, AGENTS gates. **Only when user invokes `/init`**.
 
+### automate-before-manual
+
+Try PAT, SSH, APIs, Azure CLI before manual user steps. Secrets vault at **`../secrets/`** (relative only — never absolute paths in skills).
+
+### validate-before-share
+
+Verify URLs and previews (HTTP 200 + content) before sending links to the user.
+
+### finish-with-dev-server
+
+After coding tasks: start dev servers on **documented ports**; if port busy, kill **own** process or use **next documented fallback**; report test URLs.
+
+### ask-before-architecture
+
+Do not choose stack/framework alone — ask with 2–4 options and a recommendation.
+
+### diagrams-mermaid
+
+Mermaid for diagrams; **validate syntax** (`mermaid-cli`) before showing the user. No ASCII art.
+
+### ui-change-e2e
+
+E2E required on UI create/change/bugfix; mock writes; run `test:e2e` before done.
+
 ## Install
 
 ```bash
-# All skills in this repo
+# All skills (global) — re-run after new skills are published
 npx skills add farukzahra/agent-skills -g -a cursor -y
 
-# Maintainer (publish workflow)
-npx skills add farukzahra/agent-skills --skill skills-sh-maintainer -g -a cursor -y
+# Sync global + every git repo under ../ (reads skills/ folder automatically)
+../agent-skills/scripts/sync-faruk-skills.ps1
+```
 
-# Recap only
-npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
+Or on Windows:
 
-# Don't forget (obligation as automation)
-npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
-
-# Version + commit message (used by /commit-push)
-npx skills add farukzahra/agent-skills --skill semantic-version -g -a cursor -y
-npx skills add farukzahra/agent-skills --skill caveman-commit -g -a cursor -y
-npx skills add farukzahra/agent-skills --skill project-init -g -a cursor -y
+```cmd
+..\agent-skills\scripts\sync-faruk-skills.cmd
 ```
 
 ## `/commit-push` (all repos)
 
-Canonical command: `reference/commands/commit-push.md`. Install or refresh in every git repo under `C:\repo`:
+Canonical command: `reference/commands/commit-push.md`. Install slash commands:
 
 ```powershell
-C:\repo\agent-skills\scripts\install-commit-push.ps1
+../agent-skills/scripts/install-commit-push.ps1
 ```
 
 Per-repo production URL: `docs/commit-push.json` (from `reference/commands/deploy-manifest.json` for known deploys).
@@ -87,12 +106,12 @@ Copy slash commands to all repos (no bootstrap):
 C:\repo\agent-skills\scripts\install-superpowers.ps1
 ```
 
-Mandatory skills after `/init`: Superpowers (`brainstorming`, `writing-plans`, `systematic-debugging`, `verification-before-completion`) + `semantic-version`, `caveman-commit`, `dont-forget`, `recap`.
+Mandatory skills after `/init`: Superpowers + all `farukzahra/agent-skills` (see `scripts/sync-faruk-skills.ps1`).
 
 ## Local clone
 
 ```text
-C:\repo\agent-skills   ← fonte de verdade; commit + push aqui
+../agent-skills   ← source of truth; commit + push here
 ```
 
 ## Cursor slash commands
