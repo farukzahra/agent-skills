@@ -91,6 +91,8 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 |-------|---------|
 | `recap` | Session delivery recap → self-contained HTML |
 | `dont-forget` | Encode recurring obligations as CI/hooks/codegen, not prose |
+| `semantic-version` | Bump `docs/release-history.json` on `/commit-push` (feeds `/sobre`) |
+| `caveman-commit` | Terse Conventional Commits for `/commit-push` |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
 ## Do not

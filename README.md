@@ -34,6 +34,14 @@ Turn recurring obligations into **executable automation** (CI, hooks, codegen, l
 - Same instruction was forgotten in prior sessions
 - A guardrail must survive session handoff (counters, sync checks, schema drift)
 
+### semantic-version
+
+Maintains `docs/release-history.json` (semver, changelog entries for `/sobre`). **Only** bump on `/commit-push` when the delivery is user-visible.
+
+### caveman-commit
+
+Ultra-compressed Conventional Commits (≤50 char subject). Pair with `semantic-version` inside `/commit-push`.
+
 ## Install
 
 ```bash
@@ -48,7 +56,21 @@ npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
 
 # Don't forget (obligation as automation)
 npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
+
+# Version + commit message (used by /commit-push)
+npx skills add farukzahra/agent-skills --skill semantic-version -g -a cursor -y
+npx skills add farukzahra/agent-skills --skill caveman-commit -g -a cursor -y
 ```
+
+## `/commit-push` (all repos)
+
+Canonical command: `reference/commands/commit-push.md`. Install or refresh in every git repo under `C:\repo`:
+
+```powershell
+C:\repo\agent-skills\scripts\install-commit-push.ps1
+```
+
+Per-repo production URL: `docs/commit-push.json` (from `reference/commands/deploy-manifest.json` for known deploys).
 
 ## Local clone
 
@@ -61,6 +83,7 @@ C:\repo\agent-skills   ← fonte de verdade; commit + push aqui
 | Command | Repo | Notes |
 |---------|------|-------|
 | `/skills-sh` | **this repo** | `.cursor/commands/skills-sh.md` |
+| `/commit-push` | **all git repos** | `scripts/install-commit-push.ps1` → `.cursor/commands/commit-push.md` |
 | `/recap` | consumer project | e.g. `sessao-gravador/.cursor/commands/recap.md` |
 
 ## License
