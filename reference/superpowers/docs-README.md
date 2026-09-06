@@ -1,19 +1,20 @@
 # Superpowers docs
 
-Design specs and implementation plans for the **Superpowers** workflow (obra/superpowers + Faruk conventions).
+Design specs and implementation plans for the **Superpowers** workflow.
+
+## Mandatory skills (after `/init`)
+
+**Process:** `brainstorming` → `writing-plans` → implement → `verification-before-completion`  
+**Debug:** `systematic-debugging`  
+**Ship:** `/commit-push` with `semantic-version` + `caveman-commit`  
+**Never forget:** `dont-forget` — automate recurring rules in CI/hooks, not prose
 
 ## Layout
 
 ```
 docs/superpowers/
-  specs/   # YYYY-MM-DD-<topic>-design.md — approved design before code
-  plans/   # YYYY-MM-DD-<feature>.md — bite-sized implementation plan
+  specs/   # YYYY-MM-DD-<topic>-design.md
+  plans/   # YYYY-MM-DD-<feature>.md
 ```
 
-## Workflow
-
-```
-brainstorming → spec in specs/ → writing-plans → plan in plans/ → implement → verification-before-completion → /commit-push
-```
-
-Invoke **`/init`** in a new or legacy repo to bootstrap folders, skills, and slash commands.
+Invoke **`/init`** once per project to install skills and create this structure.

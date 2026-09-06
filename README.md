@@ -74,13 +74,15 @@ Per-repo production URL: `docs/commit-push.json` (from `reference/commands/deplo
 
 ## Superpowers + `/init`
 
-Bootstrap design → plan → implement workflow in every git repo:
+**`/init` runs only when you invoke it** in a project chat — it installs mandatory skills, creates `docs/superpowers/`, and merges AGENTS workflow.
+
+Copy slash commands to all repos (no bootstrap):
 
 ```powershell
 C:\repo\agent-skills\scripts\install-superpowers.ps1
 ```
 
-Creates `docs/superpowers/`, `skills-lock.json` (core), project skills, `/init`, `/commit-push`, and AGENTS workflow snippet.
+Mandatory skills after `/init`: Superpowers (`brainstorming`, `writing-plans`, `systematic-debugging`, `verification-before-completion`) + `semantic-version`, `caveman-commit`, `dont-forget`.
 
 ## Local clone
 
