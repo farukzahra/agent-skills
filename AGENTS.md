@@ -18,7 +18,10 @@ Toda criação ou alteração de skill:
 2. Atualizar **`README.md`** se for skill nova
 3. **Commit** (Conventional Commits, inglês) + **`git push origin main`**
 4. Sincronizar **`~/.cursor/skills/<nome>/`** e **`~/.agents/skills/<nome>/`**
-5. Informar commit hash + URL skills.sh
+5. **Rollout** (ver `skills/skills-sh-maintainer/reference/rollout.md`):
+   - Skill **geral** (`recap`, `dont-forget`, …): ao final, **perguntar** se instala globalmente (`-g`) para todos os projetos em `C:\repo`
+   - Skill **específica deste repo** (`skills-sh-maintainer`): só sync local; não oferecer rollout em massa
+6. Informar commit hash + URL skills.sh
 
 Não encerrar sem push no GitHub.
 
@@ -36,10 +39,15 @@ Não encerrar sem push no GitHub.
 ## Instalar skills (consumidor)
 
 ```bash
-npx skills add farukzahra/agent-skills -g -a cursor -y
+# Global = disponível em TODOS os projetos (recomendado para skills gerais)
+npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
 npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
+
+# Maintainer: só faz sentido neste workspace
 npx skills add farukzahra/agent-skills --skill skills-sh-maintainer -g -a cursor -y
 ```
+
+Instalação **por repo** (commitar no git de cada projeto): ver `skills/skills-sh-maintainer/reference/rollout.md`.
 
 Comandos `/recap` etc. ficam em cada projeto (ex.: `sessao-gravador/.cursor/commands/`), fora do pacote skills.sh.
 

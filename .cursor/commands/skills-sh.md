@@ -15,7 +15,9 @@ Create, update, or publish a Cursor agent skill on **skills.sh** and sync the lo
 3. Update root `README.md` for new skills.
 4. Sync copies to `~/.cursor/skills/` and `~/.agents/skills/`.
 5. **Commit + push** `main` on `farukzahra/agent-skills`.
-6. Optionally run `npx skills add farukzahra/agent-skills --skill <name> -g -a cursor -y`.
+6. **Rollout** (`skills/skills-sh-maintainer/reference/rollout.md`):
+   - Cross-repo skill → **ask user** whether to install globally (`-g`) for all `C:\repo` projects.
+   - Workspace-specific skill (`skills-sh-maintainer`) → sync only; no bulk offer.
 7. If the skill needs a project slash command, add `.cursor/commands/<name>.md` in the **consumer repo** (not here).
 
 ## Output language

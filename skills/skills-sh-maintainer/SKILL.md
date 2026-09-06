@@ -54,7 +54,9 @@ You maintain **Faruk's published agent skills** on [skills.sh](https://skills.sh
    Copy-Item -Recurse "C:\repo\agent-skills\skills\<skill-name>" "C:\Users\T-GAMER\.cursor\skills\<skill-name>" -Force
    Copy-Item -Recurse "C:\repo\agent-skills\skills\<skill-name>" "C:\Users\T-GAMER\.agents\skills\<skill-name>" -Force
    ```
-7. **Optional global install** (refresh from registry):
+7. **Rollout** — see [reference/rollout.md](reference/rollout.md):
+   - **Cross-repo skills** (`recap`, `dont-forget`, …): before closing, **ask the user** whether to install globally (`-g`) for all projects under `C:\repo`. If they already said yes (or "install everywhere"), run without asking again.
+   - **Workspace-specific skills** (`skills-sh-maintainer`): sync step 6 only; **do not** offer bulk `C:\repo` rollout.
    ```bash
    npx skills add farukzahra/agent-skills --skill <skill-name> -g -a cursor -y
    ```
@@ -89,7 +91,7 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 |-------|---------|
 | `recap` | Session delivery recap → self-contained HTML |
 | `dont-forget` | Encode recurring obligations as CI/hooks/codegen, not prose |
-| `skills-sh-maintainer` | This skill — create/publish/sync skills |
+| `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
 ## Do not
 
