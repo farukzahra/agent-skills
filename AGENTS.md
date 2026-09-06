@@ -49,6 +49,7 @@ Comandos `/recap` etc. ficam em cada projeto (ex.: `sessao-gravador/.cursor/comm
 skills/
   skills-sh-maintainer/   # este agente — meta-skill de publicação
   recap/                  # recap de sessão → HTML
+  dont-forget/            # obrigação recorrente → automação (CI, hooks)
 ```
 
 ## Commits

@@ -88,6 +88,7 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 | Skill | Purpose |
 |-------|---------|
 | `recap` | Session delivery recap → self-contained HTML |
+| `dont-forget` | Encode recurring obligations as CI/hooks/codegen, not prose |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills |
 
 ## Do not

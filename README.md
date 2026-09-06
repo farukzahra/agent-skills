@@ -24,6 +24,16 @@ Summarize all user requests from the current AI chat session and produce a conci
 - User wants "what was asked vs what was delivered"
 - Handoff document before closing a chat
 
+### dont-forget
+
+Turn recurring obligations into **executable automation** (CI, hooks, codegen, lint) instead of prose reminders agents skip. Prefer failing builds over "remember to do X."
+
+**Use when:**
+
+- User says always, every time, never forget, on each deploy, before commit
+- Same instruction was forgotten in prior sessions
+- A guardrail must survive session handoff (counters, sync checks, schema drift)
+
 ## Install
 
 ```bash
@@ -35,6 +45,9 @@ npx skills add farukzahra/agent-skills --skill skills-sh-maintainer -g -a cursor
 
 # Recap only
 npx skills add farukzahra/agent-skills --skill recap -g -a cursor -y
+
+# Don't forget (obligation as automation)
+npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
 ```
 
 ## Local clone
