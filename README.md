@@ -42,6 +42,10 @@ Maintains `docs/release-history.json` (semver, changelog entries for `/sobre`). 
 
 Ultra-compressed Conventional Commits (≤50 char subject). Pair with `semantic-version` inside `/commit-push`.
 
+### project-init
+
+Bootstrap Superpowers workflow in a project (`/init`): folders, mandatory skills, slash commands, AGENTS gates. **Only when user invokes `/init`**.
+
 ## Install
 
 ```bash

@@ -93,6 +93,7 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 | `dont-forget` | Encode recurring obligations as CI/hooks/codegen, not prose |
 | `semantic-version` | Bump `docs/release-history.json` on `/commit-push` (feeds `/sobre`) |
 | `caveman-commit` | Terse Conventional Commits for `/commit-push` |
+| `project-init` | Bootstrap Superpowers workflow (`/init`) in a project |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
 ## Do not
