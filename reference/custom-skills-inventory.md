@@ -49,3 +49,14 @@ git push
 GitHub Actions    →  if .github/workflows/
 prod verify       →  docs/commit-push.json
 ```
+
+## Superpowers (obra/superpowers + Faruk)
+
+| Item | Location |
+|------|----------|
+| Specs / plans | `docs/superpowers/specs/`, `plans/` |
+| Core skills lock | `reference/superpowers/skills-lock.core.json` |
+| Bootstrap command | `/init` → `reference/commands/init.md` |
+| Install all repos | `scripts/install-superpowers.ps1` |
+
+Full template: `C:\repo\faruk_base` (19 skills in lock + example specs).

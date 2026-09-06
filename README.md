@@ -72,6 +72,16 @@ C:\repo\agent-skills\scripts\install-commit-push.ps1
 
 Per-repo production URL: `docs/commit-push.json` (from `reference/commands/deploy-manifest.json` for known deploys).
 
+## Superpowers + `/init`
+
+Bootstrap design → plan → implement workflow in every git repo:
+
+```powershell
+C:\repo\agent-skills\scripts\install-superpowers.ps1
+```
+
+Creates `docs/superpowers/`, `skills-lock.json` (core), project skills, `/init`, `/commit-push`, and AGENTS workflow snippet.
+
 ## Local clone
 
 ```text
@@ -83,8 +93,9 @@ C:\repo\agent-skills   ← fonte de verdade; commit + push aqui
 | Command | Repo | Notes |
 |---------|------|-------|
 | `/skills-sh` | **this repo** | `.cursor/commands/skills-sh.md` |
-| `/commit-push` | **all git repos** | `scripts/install-commit-push.ps1` → `.cursor/commands/commit-push.md` |
-| `/recap` | consumer project | e.g. `sessao-gravador/.cursor/commands/recap.md` |
+| `/commit-push` | **all git repos** | `scripts/install-commit-push.ps1` |
+| `/init` | **all git repos** | `scripts/install-superpowers.ps1` |
+| `/recap` | consumer project | e.g. `terapia/.cursor/commands/recap.md` |
 
 ## License
 

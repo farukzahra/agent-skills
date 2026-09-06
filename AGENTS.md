@@ -63,3 +63,18 @@ skills/
 ## Commits
 
 Conventional Commits em **inglês**. Não commitar sem pedido explícito do usuário em outros repos; **neste repo**, commit + push fazem parte do fluxo de publicação de skill.
+
+## Superpowers workflow
+
+| Phase | Skill | Output |
+|-------|-------|--------|
+| Design | `brainstorming` | Approved design â†’ `docs/superpowers/specs/YYYY-MM-DD-*-design.md` |
+| Plan | `writing-plans` | `docs/superpowers/plans/YYYY-MM-DD-*.md` |
+| Build | stack skills + `tdd` | Code + tests |
+| Verify | `verification-before-completion` | Evidence before "done" |
+| Debug | `systematic-debugging` | Root cause before fix |
+| Ship | `/commit-push` | `semantic-version` + `caveman-commit` + push + CI |
+
+**Gates:** no feature code before approved spec; no "done" without verification; version bump only on `/commit-push`.
+
+Invoke `/init` to (re)bootstrap skills and folders.
