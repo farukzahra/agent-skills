@@ -7,7 +7,8 @@ Design specs and implementation plans for the **Superpowers** workflow.
 **Process:** `brainstorming` → `writing-plans` → implement → `verification-before-completion`  
 **Debug:** `systematic-debugging`  
 **Ship:** `/commit-push` with `semantic-version` + `caveman-commit`  
-**Never forget:** `dont-forget` — automate recurring rules in CI/hooks, not prose
+**Never forget:** `dont-forget` — automate recurring rules in CI/hooks, not prose  
+**Handoff:** `recap` + `/recap` — session summary HTML
 
 ## Layout
 

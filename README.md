@@ -64,6 +64,7 @@ npx skills add farukzahra/agent-skills --skill dont-forget -g -a cursor -y
 # Version + commit message (used by /commit-push)
 npx skills add farukzahra/agent-skills --skill semantic-version -g -a cursor -y
 npx skills add farukzahra/agent-skills --skill caveman-commit -g -a cursor -y
+npx skills add farukzahra/agent-skills --skill project-init -g -a cursor -y
 ```
 
 ## `/commit-push` (all repos)
@@ -86,7 +87,7 @@ Copy slash commands to all repos (no bootstrap):
 C:\repo\agent-skills\scripts\install-superpowers.ps1
 ```
 
-Mandatory skills after `/init`: Superpowers (`brainstorming`, `writing-plans`, `systematic-debugging`, `verification-before-completion`) + `semantic-version`, `caveman-commit`, `dont-forget`.
+Mandatory skills after `/init`: Superpowers (`brainstorming`, `writing-plans`, `systematic-debugging`, `verification-before-completion`) + `semantic-version`, `caveman-commit`, `dont-forget`, `recap`.
 
 ## Local clone
 

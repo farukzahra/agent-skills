@@ -3,7 +3,7 @@ name: project-init
 description: >-
   Bootstrap Superpowers agent workflow in a project — docs/superpowers folders,
   mandatory skills (brainstorming, writing-plans, semantic-version, caveman-commit,
-  dont-forget), slash commands, AGENTS.md gates. Use when user invokes /init or
+  dont-forget, recap), slash commands, AGENTS.md gates. Use when user invokes /init or
   asks to initialize agent conventions in a new or legacy repo.
 disable-model-invocation: false
 ---
@@ -20,7 +20,7 @@ Sets up Superpowers + Faruk mandatory skills in the **current project**. Does no
 |---|--------|
 | 1 | Create `docs/superpowers/specs/` and `plans/` (+ README) |
 | 2 | Install **mandatory skills** at project scope |
-| 3 | Ensure `/commit-push` and `/init` in `.cursor/commands/` |
+| 3 | Ensure `/commit-push`, `/init`, and `/recap` in `.cursor/commands/` |
 | 4 | Optional: Cursor rules + `docs/release-history.json` for web apps |
 | 5 | Merge **AGENTS.md** workflow table (never replace a rich file) |
 
@@ -42,10 +42,10 @@ Sets up Superpowers + Faruk mandatory skills in the **current project**. Does no
 | `semantic-version` | Version bump **only** on `/commit-push` → `/sobre` |
 | `caveman-commit` | Commit messages on `/commit-push` |
 | `dont-forget` | Recurring rules → CI/hooks/codegen, not prose |
+| `recap` | Session handoff → HTML recap (`/recap`) |
 
 ### Optional after init
 
-- `recap` — long sessions (add `/recap` command in consumer repo)
 - `skills-sh-maintainer` — **only** `agent-skills` repo
 
 ## Workflow
@@ -74,6 +74,7 @@ npx skills add farukzahra/agent-skills \
   --skill semantic-version \
   --skill caveman-commit \
   --skill dont-forget \
+  --skill recap \
   -a cursor -y
 ```
 
@@ -96,6 +97,7 @@ Copy from agent-skills repo if missing:
 
 - `reference/commands/commit-push.md` → `.cursor/commands/commit-push.md`
 - `reference/commands/init.md` → `.cursor/commands/init.md`
+- `reference/commands/recap.md` → `.cursor/commands/recap.md`
 
 Deploy config: `docs/commit-push.json` (see `reference/commands/deploy-manifest.json`).
 
@@ -113,7 +115,7 @@ Append workflow table if missing — see [reference/agents-snippet.md](reference
 
 ### 8. Report
 
-List: folders created, skills installed, commands ready, optional `recap`, next step = `brainstorming`.
+List: folders created, skills installed, commands ready (`/init`, `/commit-push`, `/recap`), next step = `brainstorming`.
 
 ## Do not
 

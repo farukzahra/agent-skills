@@ -3,6 +3,7 @@
 $ErrorActionPreference = "Stop"
 $Root = "C:\repo\agent-skills"
 $InitSrc = Join-Path $Root "reference\commands\init.md"
+$RecapSrc = Join-Path $Root "reference\commands\recap.md"
 $CommitPushScript = Join-Path $Root "scripts\install-commit-push.ps1"
 $SkipDirs = @('secrets', 'docker', '.idea', 'vps keys')
 
@@ -14,10 +15,11 @@ Get-ChildItem "C:\repo" -Directory | Where-Object { $SkipDirs -notcontains $_.Na
     $cmdDir = Join-Path $repoDir ".cursor\commands"
     New-Item -ItemType Directory -Force -Path $cmdDir | Out-Null
     Copy-Item $InitSrc (Join-Path $cmdDir "init.md") -Force
+    Copy-Item $RecapSrc (Join-Path $cmdDir "recap.md") -Force
     $installed += $_.Name
 }
 
 & $CommitPushScript
 
-Write-Host "Slash commands only (init + commit-push) in $($installed.Count) repos."
+Write-Host "Slash commands only (init + commit-push + recap) in $($installed.Count) repos."
 Write-Host "Run /init in each project when you want full Superpowers bootstrap."

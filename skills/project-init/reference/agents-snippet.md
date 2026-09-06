@@ -9,6 +9,7 @@
 | Verify | `verification-before-completion` | Evidence before "done" |
 | Debug | `systematic-debugging` | Root cause before fix |
 | Ship | `/commit-push` | `semantic-version` → `caveman-commit` → push → Actions → prod URL |
+| Handoff | `/recap` + `recap` | Session summary HTML when closing a long chat |
 
 **Gates:** no feature without approved spec; no "done" without verification; version bump only on `/commit-push`; obligations that must not be forgotten → automate (`dont-forget`).
 
