@@ -1,5 +1,7 @@
 # Don't forget — examples
 
+Before implementing any pattern below, **propose** the obligation, trigger, tier, files, and failure mode to the user and wait for approval.
+
 ## Increment counter on every deploy
 
 | Tier | Implementation |

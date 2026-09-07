@@ -26,13 +26,13 @@ Summarize all user requests from the current AI chat session and produce a conci
 
 ### dont-forget
 
-Turn recurring obligations into **executable automation** (CI, hooks, codegen, lint) instead of prose reminders agents skip. Prefer failing builds over "remember to do X."
+Turn recurring obligations into **executable automation** (CI, hooks, codegen, lint) instead of prose reminders agents skip. Agent proposes the enforcement plan before editing files; prefer failing builds over "remember to do X."
 
 **Use when:**
 
 - User says always, every time, never forget, on each deploy, before commit
 - Same instruction was forgotten in prior sessions
-- A guardrail must survive session handoff (counters, sync checks, schema drift)
+- An enforcement check must survive session handoff (counters, sync checks, schema drift)
 
 ### semantic-version
 
