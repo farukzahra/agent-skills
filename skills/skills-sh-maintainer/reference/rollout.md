@@ -13,8 +13,8 @@
 
 | Type | Examples | Agent behavior after publish |
 |------|----------|------------------------------|
-| **Cross-repo** | `recap`, `dont-forget` | **Ask user:** "Instalar globalmente (todos os projetos em `C:\repo`)?" |
-| **Workspace-specific** | `skills-sh-maintainer` | Sync `~/.cursor/skills/` only; **do not** offer bulk `C:\repo` rollout |
+| **Cross-repo** | `recap`, `dont-forget` | **`/commit-push` in `agent-skills`** runs `scripts/sync-faruk-skills.ps1` automatically — no ask |
+| **Workspace-specific** | `skills-sh-maintainer` | Included in the same bulk sync; no separate rollout prompt |
 
 Workspace-specific skills only make sense when working in `C:\repo\agent-skills` (publish workflow, skills.sh meta).
 

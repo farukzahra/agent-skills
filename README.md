@@ -94,6 +94,8 @@ Canonical command: `reference/commands/commit-push.md`. Install slash commands:
 ../agent-skills/scripts/install-commit-push.ps1
 ```
 
+In **`agent-skills`**, `/commit-push` also runs `scripts/sync-faruk-skills.ps1` after push (global + every git repo under `C:\repo`).
+
 Per-repo production URL: `docs/commit-push.json` (from `reference/commands/deploy-manifest.json` for known deploys).
 
 ## Superpowers + `/init`

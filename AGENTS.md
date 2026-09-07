@@ -17,11 +17,8 @@ Toda criação ou alteração de skill:
 1. Editar em **`C:\repo\agent-skills/skills/<nome>/`**
 2. Atualizar **`README.md`** se for skill nova
 3. **Commit** (Conventional Commits, inglês) + **`git push origin main`**
-4. Sincronizar **`~/.cursor/skills/<nome>/`** e **`~/.agents/skills/<nome>/`**
-5. **Rollout** (ver `skills/skills-sh-maintainer/reference/rollout.md`):
-   - Skill **geral** (`recap`, `dont-forget`, …): ao final, **perguntar** se instala globalmente (`-g`) para todos os projetos em `C:\repo`
-   - Skill **específica deste repo** (`skills-sh-maintainer`): só sync local; não oferecer rollout em massa
-6. Informar commit hash + URL skills.sh
+4. **`/commit-push` neste repo** roda automaticamente `scripts/sync-faruk-skills.ps1` após push — instala global + todos os git repos em `C:\repo` e atualiza `~/.cursor/skills/` + `~/.agents/skills/`. **Não perguntar** se deve instalar; é parte do ship.
+5. Informar commit hash + URL skills.sh
 
 Não encerrar sem push no GitHub.
 
@@ -72,7 +69,7 @@ Conventional Commits em **inglês**. Não commitar sem pedido explícito do usu�
 | Build | stack skills + `tdd` | Code + tests |
 | Verify | `verification-before-completion` | Evidence before "done" |
 | Debug | `systematic-debugging` | Root cause before fix |
-| Ship | `/commit-push` | `semantic-version` + `caveman-commit` + push + CI |
+| Ship | `/commit-push` | `semantic-version` + `caveman-commit` + push + `sync-faruk-skills.ps1` + CI |
 
 **Gates:** no feature code before approved spec; no "done" without verification; version bump only on `/commit-push`.
 

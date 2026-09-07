@@ -77,6 +77,24 @@ If upstream is missing: `git push -u origin HEAD`.
 
 **Push auth (Windows):** if HTTPS asks for a password and `gh` is unavailable, use PAT from `C:\repo\secrets\github\pat.txt` (line starting with `ghp_`).
 
+## Step 6b — Sync skills (`agent-skills` repo only)
+
+**When** this repo is `agent-skills` (`C:\repo\agent-skills`, remote `farukzahra/agent-skills`):
+
+After a **successful push**, run **without asking**:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\repo\agent-skills\scripts\sync-faruk-skills.ps1"
+```
+
+This installs all published skills **globally** (`-g`) and in **every git repo** under `C:\repo`, and refreshes `~/.cursor/skills/` + `~/.agents/skills/` from `skills/*`.
+
+- **Do not skip** after push in this repo.
+- **Do not ask** for rollout confirmation — bulk sync is part of `/commit-push` here.
+- If push was skipped (nothing to commit), skip this step too.
+
+Report how many repos were synced in the final summary.
+
 ## Step 7 — GitHub Actions (when configured)
 
 **Skip this step** if `.github/workflows/` does not exist.
@@ -125,6 +143,7 @@ Always include:
 - New version from `release-history.json` if bumped
 - **GitHub Actions:** run URL + status (or "no workflows in repo")
 - **Production:** the **`productionUrl`** from config — the URL you validated, what you checked on the page, and pass/fail
+- **`agent-skills` only:** skills sync result (`sync-faruk-skills.ps1` — global + repo count)
 
 ## Failures
 

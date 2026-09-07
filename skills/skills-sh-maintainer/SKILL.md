@@ -49,21 +49,18 @@ You maintain **Faruk's published agent skills** on [skills.sh](https://skills.sh
    - User-facing HTML/copy may be PT-BR when the skill targets a PT project
 4. **Update** `README.md` in repo root — list the new skill + install one-liner.
 5. **Commit + push** `main` (Conventional Commits, English message).
-6. **Sync everywhere** (auto-discovers new folders under `skills/`):
+6. **Sync everywhere** — `/commit-push` in this repo runs `scripts/sync-faruk-skills.ps1` after push (global + all `C:\repo` git repos + `~/.cursor/skills/`). Manual run if not using `/commit-push`:
    ```powershell
    ../agent-skills/scripts/sync-faruk-skills.ps1
    ```
-7. **Rollout** — see [reference/rollout.md](reference/rollout.md):
-   - **Cross-repo skills**: `sync-faruk-skills.ps1` installs project + global; or ask user before `-GlobalOnly` changes.
-   - **Workspace-specific** (`skills-sh-maintainer`): local copy sync only in `agent-skills` workspace.
+7. **Rollout** — see [reference/rollout.md](reference/rollout.md): bulk sync is automatic on `/commit-push`; do not ask the user.
 8. **Project slash commands** (if needed) live in **consumer repos**, e.g. `sessao-gravador/.cursor/commands/recap.md` — not in the skills.sh package.
 
 ## Update an existing skill
 
 1. Edit under `../agent-skills/skills/<skill-name>/`.
-2. Run `../agent-skills/scripts/sync-faruk-skills.ps1` (or commit first, then sync after push).
-3. `git add` → `git commit` → `git push origin main`.
-4. Report commit hash + skills.sh URL to the user.
+2. `/commit-push` (or commit → push → `scripts/sync-faruk-skills.ps1`).
+3. Report commit hash + skills.sh URL to the user.
 
 ### Push when `gh` is unavailable
 
