@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Find Job — 2026-09-10 — Faruk Zahra (meta 50)</title>
+  <style>
+    :root {
+      --bg-page: #102223;
+      --bg-card: #16302f;
+      --primary: #2d6a6b;
+      --secondary: #7fb5b0;
+      --ink: #f2f5f4;
+      --muted: #9bb0ae;
+      --ok: #3ecf8e;
+      --skip: #e8b84a;
+      --fail: #f07178;
+      --border: rgba(127, 181, 176, 0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg-page);
+      color: var(--ink);
+      margin: 0;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(45, 106, 107, 0.35), transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin: 0 0 6px; }
+    .meta { color: var(--muted); margin-bottom: 24px; font-size: 14px; }
+    .meta code { background: rgba(0,0,0,.25); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+    h2 { font-size: 1.05rem; margin: 0 0 12px; color: var(--secondary); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .stat {
+      background: rgba(0,0,0,.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat .num { font-size: 1.8rem; font-weight: 700; color: var(--secondary); }
+    .stat .lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+    .stat.ok .num { color: var(--ok); }
+    .stat.warn .num { color: var(--skip); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { background: rgba(0,0,0,.25); color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+    tr:last-child td { border-bottom: none; }
+    .applied { color: var(--ok); font-weight: 600; }
+    .skipped { color: var(--skip); }
+    .fail { color: var(--fail); }
+    .geo { font-family: ui-monospace, monospace; font-size: 11px; color: var(--secondary); }
+    .session { font-size: 11px; color: var(--muted); }
+    ul { margin: 8px 0; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+    .blocker {
+      border-left: 3px solid var(--skip);
+      padding: 10px 14px;
+      background: rgba(232, 184, 74, 0.08);
+      border-radius: 0 6px 6px 0;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    a { color: var(--secondary); }
+    footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>/find-job — sessão 2026-09-10 (meta 50)</h1>
+    <p class="meta">
+      Candidato: <strong>Faruk Zahra</strong> · Curitiba, BR · CV default <code>../faruk</code><br />
+      Busca: Worldwide + Remote + Easy Apply · <code>senior java spring remote</code> · past month · Senior/Director/Executive<br />
+      Regras: remoto BR/LATAM · sem autorização EUA · PJ R$35k/mês · USD 110k · max <strong>50</strong> applies
+    </p>
+
+    <section>
+      <h2>Resumo</h2>
+      <div class="stats">
+        <div class="stat ok"><div class="num">10</div><div class="lbl">Aplicadas válidas</div></div>
+        <div class="stat"><div class="num">50</div><div class="lbl">Meta sessão</div></div>
+        <div class="stat warn"><div class="num">40</div><div class="lbl">Faltam</div></div>
+        <div class="stat"><div class="num">8</div><div class="lbl">Puladas (log)</div></div>
+        <div class="stat fail"><div class="num">1</div><div class="lbl">Apply indevido</div></div>
+      </div>
+      <ul>
+        <li><strong>Sessão 1 (manhã):</strong> 9 candidaturas válidas BR Remote confirmadas no LinkedIn</li>
+        <li><strong>Sessão 2 (tarde):</strong> +1 Jobgether Senior Java Software Development Engineer — "Applied just now"</li>
+        <li><strong>Continuação automática:</strong> bloqueada — MCP browser indisponível no subagent (tab 15f226 não acessível)</li>
+      </ul>
+      <div class="blocker">
+        <strong>Bloqueio técnico:</strong> o cursor-ide-browser retornou "No browser tab available" nesta continuação.
+        Retomar no agente pai com a aba LinkedIn desbloqueada; paginar <code>start=25,50,75…</code> na mesma query.
+      </div>
+    </section>
+
+    <section>
+      <h2>Candidaturas enviadas (válidas)</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Vaga</th><th>Empresa</th><th>Geo</th><th>Sessão</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Software Architect (Java/Angular), Brazil</td>
+            <td>CI&amp;T</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>Easy Apply Lever — location Curitiba, English Advanced, BairesDev</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Senior Java Developer</td>
+            <td>VMetrix</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>PJ Yes · pretensão R$ 35.000/mês</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Senior Software Engineer | Remote</td>
+            <td>Crossing Hurdles</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>Brazil (Remote) · contrato $50–100/hr</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Staff Software Engineer, Product</td>
+            <td>LawnStarter</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>LATAM Yes · USD 110k · work from anywhere</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Java Backend Software Engineer</td>
+            <td>Jobgether</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>Partner posting · Brazil Remote</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Staff Software Engineer | Java</td>
+            <td>PicPay</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>São Paulo, BR Remote · fintech Java</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Back End Developer (Java + Node)</td>
+            <td>OSF Digital</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>Pretensão ~R$ 10.500/mês CLT</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Java Backend Software Engineer</td>
+            <td>Jitterbit</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>São Paulo, BR Remote · Java/Spring · Curitiba</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Software Engineer | Backend Pleno</td>
+            <td>Sankhya</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">1</td>
+            <td>Java 20y · Spring Yes · IA Yes · CLT R$ 35k</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Senior Java Software Development Engineer</td>
+            <td>Jobgether</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="session">2</td>
+            <td class="applied">Brazil Remote — "Applied just now" (2026-09-10 tarde)</td>
+          </tr>
+          <tr style="opacity:.65">
+            <td>⚠</td>
+            <td>Back End Developer</td>
+            <td>Intelletec</td>
+            <td class="geo">REMOTE_REGION_LOCKED</td>
+            <td class="session">1</td>
+            <td class="fail">US Remote — apply acidental (não contar na meta)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Puladas (geo / canal / requisito)</h2>
+      <table>
+        <thead>
+          <tr><th>Vaga</th><th>Empresa</th><th>Classificação</th><th>Motivo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SOFTWARE DEVELOPER SPECIALIST (Java)</td>
+            <td>Inter</td>
+            <td class="geo">NOT_REMOTE</td>
+            <td class="skipped">Curitiba On-site</td>
+          </tr>
+          <tr>
+            <td>Grupo QuintoAndar | Senior Software Engineer</td>
+            <td>QuintoAndar</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="skipped">Apply on company website (não Easy Apply)</td>
+          </tr>
+          <tr>
+            <td>Staff Software Engineer</td>
+            <td>Unico Skill</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="skipped">Apply on company website</td>
+          </tr>
+          <tr>
+            <td>Senior Java Backend Developer | Relocation to Portugal</td>
+            <td>Aubay Portugal</td>
+            <td class="geo">REMOTE_UNCLEAR</td>
+            <td class="skipped">Relocação Portugal — remoto BR não confirmado</td>
+          </tr>
+          <tr>
+            <td>Senior Full Stack Engineer II</td>
+            <td>Teachable</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="skipped">Greenhouse benefits step — não concluído</td>
+          </tr>
+          <tr>
+            <td>Senior Software Developer</td>
+            <td>Stealth Startup</td>
+            <td class="geo">REMOTE_REGION_LOCKED</td>
+            <td class="skipped">United States (Remote)</td>
+          </tr>
+          <tr>
+            <td>Sr Golang Developer 100% Remote in Brazil</td>
+            <td>Pyramid Consulting</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="skipped">Stack mismatch (Go vs Java focus)</td>
+          </tr>
+          <tr>
+            <td>Sr. Software Engineer II (DSM Integrations)</td>
+            <td>Cint</td>
+            <td class="geo">REMOTE_BRAZIL_OK</td>
+            <td class="skipped">Sem botão Easy Apply visível</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Parâmetros de busca (continuação)</h2>
+      <ul>
+        <li><strong>URL base:</strong> <code>https://www.linkedin.com/jobs/search/?keywords=senior%20java%20spring%20remote&amp;location=Worldwide&amp;f_WT=2&amp;f_AL=true&amp;f_TPR=r2592000&amp;f_E=4%2C5%2C6</code></li>
+        <li><strong>Paginação:</strong> <code>start=25</code> → <code>50</code> → <code>75</code> … até esgotar ou meta 50</li>
+        <li><strong>Keywords alternativas:</strong> <code>senior fullstack java remote</code>, <code>java architect remote worldwide</code>, <code>spring boot remote latam</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Screening defaults (CV)</h2>
+      <ul>
+        <li><strong>Location:</strong> Curitiba, Paraná, Brazil</li>
+        <li><strong>LinkedIn:</strong> https://www.linkedin.com/in/farukz</li>
+        <li><strong>Current company:</strong> BairesDev</li>
+        <li><strong>English:</strong> Advanced / Professional Working Proficiency</li>
+        <li><strong>US work authorization:</strong> No</li>
+        <li><strong>PJ (BR):</strong> Yes · R$ 35.000/mês</li>
+        <li><strong>Expected USD salary:</strong> 110000</li>
+        <li><strong>Java/Spring experience:</strong> 20+ years</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Próximos passos</h2>
+      <ul>
+        <li>Retomar no agente pai com browser MCP ativo (desbloquear tab LinkedIn)</li>
+        <li>Continuar loop Easy Apply a partir de <code>start=25</code> — meta restante: <strong>40</strong></li>
+        <li>Parar em captcha/rate limit ou ao atingir 50 válidas</li>
+        <li>Atualizar este relatório com novas linhas na tabela de candidaturas</li>
+      </ul>
+    </section>
+
+    <footer>Generated by /find-job · 2026-09-10 · agent-skills</footer>
+  </div>
+</body>
+</html>

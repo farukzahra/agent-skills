@@ -143,6 +143,7 @@ Mandatory skills after `/init`: Superpowers + all `farukzahra/agent-skills` (see
 | `/commit-push` | **all git repos** | `scripts/install-commit-push.ps1` |
 | `/init` | **all git repos** | `scripts/install-superpowers.ps1` |
 | `/recap` | consumer project | e.g. `terapia/.cursor/commands/recap.md` |
+| `/find-job` | **this repo** (+ optional consumer) | `.cursor/commands/find-job.md` |
 
 ## License
 
