@@ -50,6 +50,15 @@ Bootstrap Superpowers workflow in a project (`/init`): folders, mandatory skills
 
 Try PAT, SSH, APIs, Azure CLI before manual user steps. Secrets vault at **`../secrets/`** (relative only — never absolute paths in skills).
 
+### dont-be-lazy
+
+When the user is lazy or says **"you do it"**, the agent must not be lazier: discover **API/MCP** first, store credentials in **`../secrets/`** (never commit), then drive the **Cursor browser** to finish the task. User only unblocks OAuth/2FA/captcha.
+
+**Use when:**
+
+- User refuses manual steps or you were about to send a checklist
+- No official API yet — still try vault + browser before delegating
+
 ### validate-before-share
 
 Verify URLs and previews (HTTP 200 + content) before sending links to the user.

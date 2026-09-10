@@ -48,3 +48,7 @@ State which **role/scope** unlocks full automation (e.g. GitHub repo scope, Azur
 - Send a manual checklist without trying API/SSH/PAT/Azure first
 - Ask permission for steps you can already run with existing keys
 - Commit or paste secrets into the repo or skills.sh
+
+## 5. User pushes back ("lazy", "you do it")
+
+Read and follow **`dont-be-lazy`**: search MCP/API, store creds in `../secrets/`, then drive the Cursor browser — do not be lazier than the user.

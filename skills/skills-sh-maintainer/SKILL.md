@@ -88,11 +88,13 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 | `caveman-commit` | Terse Conventional Commits for `/commit-push` |
 | `project-init` | Bootstrap Superpowers workflow (`/init`) in a project |
 | `automate-before-manual` | PAT/SSH/API via `../secrets/` before manual steps |
+| `dont-be-lazy` | User lazy → API/MCP, vault creds, Cursor browser — agent finishes |
 | `validate-before-share` | Verify URLs before sharing with user |
 | `finish-with-dev-server` | Dev server, port conflicts, test URLs |
 | `ask-before-architecture` | Ask before stack/architecture decisions |
 | `diagrams-mermaid` | Mermaid diagrams with syntax validation |
 | `ui-change-e2e` | E2E on UI changes and bugfixes |
+| `find-job` | LinkedIn Jobs search from resume (browser, manual login, match report) |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
 ## Do not

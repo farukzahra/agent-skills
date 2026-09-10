@@ -3,7 +3,7 @@ name: project-init
 description: >-
   Bootstrap Superpowers agent workflow in a project — docs/superpowers folders,
   mandatory skills (brainstorming, writing-plans, semantic-version, caveman-commit,
-  dont-forget, recap, automate-before-manual, validate-before-share,
+  dont-forget, recap, automate-before-manual, dont-be-lazy, validate-before-share,
   finish-with-dev-server, ask-before-architecture, diagrams-mermaid, ui-change-e2e),
   slash commands, AGENTS.md gates. Use when user invokes /init or asks to initialize
   agent conventions in a new or legacy repo.
@@ -46,6 +46,7 @@ Sets up Superpowers + Faruk mandatory skills in the **current project**. Does no
 | `dont-forget` | Recurring rules → CI/hooks/codegen, not prose |
 | `recap` | Session handoff → HTML recap (`/recap`) |
 | `automate-before-manual` | Try PAT/SSH/API before manual steps (`../secrets/`) |
+| `dont-be-lazy` | User lazy → API/MCP, vault, Cursor browser — agent finishes |
 | `validate-before-share` | Verify URLs before sending to user |
 | `finish-with-dev-server` | Dev server up, port conflict rules, test URLs |
 | `ask-before-architecture` | Ask before stack/architecture choices |
