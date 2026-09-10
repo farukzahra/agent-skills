@@ -79,6 +79,16 @@ Mermaid for diagrams; **validate syntax** (`mermaid-cli`) before showing the use
 
 E2E required on UI create/change/bugfix; mock writes; run `test:e2e` before done.
 
+### find-job
+
+Search **LinkedIn Jobs** in the Cursor browser from the user's resume: remote / worldwide filters, match scoring, suspicious-employer heuristics, **automatic Easy Apply submission**, HTML report. Invoke with **`/find-job`**. If no CV path is given, ask; default resume lives in **`../faruk`**.
+
+**Use when:**
+
+- User wants LinkedIn job search driven by their CV
+- Remote roles abroad with fake-company triage
+- User will log in to LinkedIn manually in the browser tab (once)
+
 ## Install
 
 ```bash
