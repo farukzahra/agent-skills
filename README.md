@@ -89,6 +89,16 @@ Search **LinkedIn Jobs** in the Cursor browser from the user's resume: remote / 
 - Remote roles abroad with fake-company triage
 - User will log in to LinkedIn manually in the browser tab (once)
 
+### google-calendar-mcp
+
+Create, list, update, and delete Google Calendar events via the **Cursor Google Calendar MCP plugin** (`plugin-google-calendar-google-calendar`). Invoke with **`/calendar-reminder`** or ask to schedule a reminder, appointment, or calendar event.
+
+**Use when:**
+
+- User wants a reminder or event on Google Calendar
+- Plan expiry / renewal check on a specific date
+- Timed meetings with optional Google Meet link
+
 ## Install
 
 ```bash
@@ -144,6 +154,7 @@ Mandatory skills after `/init`: Superpowers + all `farukzahra/agent-skills` (see
 | `/init` | **all git repos** | `scripts/install-superpowers.ps1` |
 | `/recap` | consumer project | e.g. `terapia/.cursor/commands/recap.md` |
 | `/find-job` | **this repo** (+ optional consumer) | `.cursor/commands/find-job.md` |
+| `/calendar-reminder` | **this repo** (+ optional consumer) | `.cursor/commands/calendar-reminder.md` |
 
 ## License
 
