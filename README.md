@@ -89,6 +89,16 @@ Search **LinkedIn Jobs** in the Cursor browser from the user's resume: remote / 
 - Remote roles abroad with fake-company triage
 - User will log in to LinkedIn manually in the browser tab (once)
 
+### instagram-chrome-post
+
+Publish Instagram posts via **real Chrome + Playwright CDP** (not Cursor browser MCP). Covers Chrome 136+ debug profile, manual login, account verification, JPEG upload, and Graph API as the long-term alternative.
+
+**Use when:**
+
+- Automating Instagram create-post / launch posts on Windows
+- Cursor browser upload is blocked and captcha blocks Playwright-only profiles
+- User will log in manually once in `.chrome-cdp-profile`
+
 ### google-calendar-mcp
 
 Create, list, update, and delete Google Calendar events via the **Cursor Google Calendar MCP plugin** (`plugin-google-calendar-google-calendar`). Invoke with **`/calendar-reminder`** or ask to schedule a reminder, appointment, or calendar event.

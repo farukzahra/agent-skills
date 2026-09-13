@@ -95,6 +95,7 @@ git push "https://${pat}@github.com/farukzahra/agent-skills.git" main
 | `diagrams-mermaid` | Mermaid diagrams with syntax validation |
 | `ui-change-e2e` | E2E on UI changes and bugfixes |
 | `find-job` | LinkedIn Jobs search from resume (browser, manual login, match report) |
+| `instagram-chrome-post` | Instagram publish via Chrome CDP + Playwright (not Cursor MCP upload) |
 | `google-calendar-mcp` | Google Calendar events/reminders via Cursor MCP plugin |
 | `skills-sh-maintainer` | This skill — create/publish/sync skills (workspace-specific rollout) |
 
