@@ -77,6 +77,18 @@ If upstream is missing: `git push -u origin HEAD`.
 
 **Push auth (Windows):** if HTTPS asks for a password and `gh` is unavailable, use PAT from `C:\repo\secrets\github\pat.txt` (line starting with `ghp_`).
 
+## Step 6a — Build and publish the packages (repos that ship a runnable artifact)
+
+**Skip** when the repo ships nothing runnable (libraries, templates, docs-only, skill packs). Otherwise pushing the code is only half the delivery: a version on GitHub with no downloadable package is a broken release, and the user will find out before you do.
+
+1. **Use the project's own publish script first** if it has one: `scripts/publish.ps1`, `scripts/publish.sh`, or a `publish` entry in `package.json`. It knows the project's asset names and release notes. Run it and read its output; do not reimplement it by hand.
+2. **If there is none, build and upload by the stack's own means**: `cargo tauri build`, `dotnet publish`, `pyinstaller`, `wails build`. Then attach every produced package to the release for the current version.
+3. **Take the version from the project manifest** (`Cargo.toml`, `package.json`, `tauri.conf.json`), never from a tag hardcoded in a script. A hardcoded tag is how a project ends up at 0.3.0 in the manifest and 0.2.0 on GitHub.
+4. **Upload under stable names, with no version in them** (`LE-Turbo-setup.exe`, `app.exe`). A version inside the asset name breaks the README link on every release.
+5. **Verify the links yourself before reporting.** HTTP HEAD `https://github.com/<owner>/<repo>/releases/latest/download/<asset>` and confirm a real byte count. A link you did not check is not a delivery.
+
+Then record the version entry with `semantic-version`, using the commit that shipped it.
+
 ## Step 6b — Sync skills (`agent-skills` repo only)
 
 **When** this repo is `agent-skills` (`C:\repo\agent-skills`, remote `farukzahra/agent-skills`):
